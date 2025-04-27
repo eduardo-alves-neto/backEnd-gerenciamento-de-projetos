@@ -13,6 +13,14 @@ const OccurrenceSchema = new Schema<IOccurrence>(
       ref: "Customer",
       required: true,
     },
+    collaboratorName: {
+      type: String,
+      required: true,
+    },
+    customerName: {
+      type: String,
+      required: true,
+    },
     description: {
       type: String,
       required: true,
@@ -20,6 +28,10 @@ const OccurrenceSchema = new Schema<IOccurrence>(
     occurrenceDate: {
       type: Date,
       required: true,
+    },
+    details: {
+      type: String,
+      required: false,
     },
   },
   {

@@ -22,18 +22,20 @@ export const registerOccurrence = async (
   }
 };
 
-export const getOccurrence = asyncWrapper(async (req: Request, res: Response) => {
-  try {
-    const { id } = req.params;
-    const occurrence = await getOccurrenceById(id);
-    if (!occurrence) {
-      return res.status(404).json({ message: "Occurrence not found" });
+export const getOccurrence = asyncWrapper(
+  async (req: Request, res: Response) => {
+    try {
+      const { id } = req.params;
+      const occurrence = await getOccurrenceById(id);
+      if (!occurrence) {
+        return res.status(404).json({ message: "Occurrence not found" });
+      }
+      return res.status(200).json(occurrence);
+    } catch (err: any) {
+      return res.status(500).json({ message: err.message });
     }
-    return res.status(200).json(occurrence);
-  } catch (err: any) {
-    return res.status(500).json({ message: err.message });
   }
-});
+);
 
 export const updateOccurrenceDetails = asyncWrapper(
   async (req: Request, res: Response, _next: NextFunction) => {
