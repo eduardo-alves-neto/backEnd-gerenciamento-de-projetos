@@ -7,6 +7,7 @@ import {
   getAllCustomers,
 } from "../services/customer.service";
 import { asyncWrapper } from "../utils/asyncWrapper";
+import { sendEmail } from "../services/email.service";
 
 export const registerCustomer = async (
   req: Request,
@@ -78,3 +79,16 @@ export const listAllCustomers = asyncWrapper(
     }
   }
 );
+
+export const notifyCustomer = async (req: Request, res: Response) => {
+  const { to, subject, message } = req.body;
+
+  try {
+    await sendEmail(to, subject, message);
+    res.status(200).json({ message: "E-mail enviado com sucesso!" });
+  } catch (error: any) {
+    res
+      .status(500)
+      .json({ message: "Erro ao enviar e-mail", error: error.message });
+  }
+};
