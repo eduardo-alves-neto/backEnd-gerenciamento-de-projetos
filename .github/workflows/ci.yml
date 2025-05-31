@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: [ 14.21.3 , 16, 18, 22 ]
+        node: [ 18, 20 ]
 
     steps:
       - name: Checkout Repository
