@@ -46,7 +46,7 @@ jobs:
         run: npm run dev
 
       - name: Start Server in Background
-        run: |
+        run: 
           npm run dev &
           sleep 5
 
