@@ -44,3 +44,12 @@ jobs:
 
       - name: Run Project
         run: npm run dev
+
+      - name: Start Server in Background
+        run: |
+          npm run dev &
+          sleep 5
+
+      - name: Test Server Health
+        run: curl http://localhost:3000/health
+
