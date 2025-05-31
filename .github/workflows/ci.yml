@@ -42,9 +42,6 @@ jobs:
       - name: TypeScript Build Check
         run: npx tsc --noEmit
 
-      - name: Run Project
-        run: npm run dev
-
       - name: Start Server in Background
         run: 
           npm run dev &
