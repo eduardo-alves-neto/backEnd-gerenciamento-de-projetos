@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Build and Test
+    name: Build
     runs-on: ubuntu-latest
     services:
       mongo:
@@ -41,3 +41,6 @@ jobs:
 
       - name: TypeScript Build Check
         run: npx tsc --noEmit
+
+      - name: Run Project
+        run: npm run dev
