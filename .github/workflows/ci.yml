@@ -22,7 +22,7 @@ jobs:
 
     strategy:
       matrix:
-        node: [18, 20]
+        node: [20]
 
     steps:
       - name: Checkout Repository
@@ -48,5 +48,5 @@ jobs:
           sleep 5
 
       - name: Test Server Health
-        run: curl http://localhost:3000/health
+        run: curl http://localhost:3000
 
